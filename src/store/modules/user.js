@@ -39,14 +39,9 @@ const user = {
   actions: {
     //根据用户名登录
     LoginByUsername ({ commit }, userInfo) {
-      const user = encryption({
-        data: userInfo,
-        type: 'Aes',
-        key: 'avue',
-        param: ['useranme', 'password']
-      });
+      
       return new Promise((resolve) => {
-        LoginByUsername(user.username, user.password, userInfo.code, userInfo.redomStr).then(res => {
+        LoginByUsername(userInfo.username, userInfo.password, userInfo.code, userInfo.redomStr).then(res => {
           const data = res.data.data;
           commit('SET_TOKEN', data);
           commit('DEL_ALL_TAG');
