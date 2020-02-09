@@ -54,15 +54,9 @@ export default {
   },
   data () {
     return {
-      //刷新token锁
-      refreshLock: false,
-      //刷新token的时间
-      refreshTime: '',
     }
   },
   created () {
-    //实时检测刷新token
-    // this.refreshToken();
   },
   mounted () {
     this.init();
@@ -111,29 +105,7 @@ export default {
           this.$store.commit('SET_SCREEN', admin.getScreen());
         }, 0);
       }
-    },
-    // 实时检测刷新token
-    refreshToken () {
-      this.refreshTime = setInterval(() => {
-        const token = getStore({
-          name: 'token',
-          debug: true,
-        }) || {};
-        const date = calcDate(token.datetime, new Date().getTime());
-        if (validatenull(date)) return;
-        if (!(date.seconds >= this.website.tokenTime) && !this.refreshLock) {
-          this.refreshLock = true;
-          this.$store
-            .dispatch('RefeshToken')
-            .then(() => {
-              clearInterval(this.refreshTime);
-            })
-            .catch(() => {
-              this.refreshLock = false;
-            });
-        }
-      }, 3000);
-    },
+    }
   }
 }
 </script>
