@@ -40,7 +40,6 @@ export default {
     },
     getMenu () {
       this.$store.dispatch("getTopMenu").then(res => {
-        debugger
         this.items = res;
       });
     },
