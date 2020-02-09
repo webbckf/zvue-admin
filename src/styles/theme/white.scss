@@ -1,0 +1,148 @@
+.theme-white {
+  .avue-header,
+  .avue-logo,
+  .tags-container {
+      background-color: #409EFF;
+  }
+  .avue-sidebar--tip{
+    background-color:transparent;
+    color:#333;
+  }
+  .el-dropdown{
+    color:#fff;
+  }
+  .avue-logo_title{
+    color:#fff;
+  }
+  .logo_title,
+  .avue-breadcrumb
+  {
+      color: #fff ;
+      i {
+          color: #fff;
+      }
+  }
+  .avue-top{
+    .top-menu {
+        .el-menu {
+            background:none;
+            .el-menu-item {
+                i,
+                span {
+                    color: #fff ;
+                }
+                &:hover {
+                    background-color:#409EFF ;
+                    i,
+                    span {
+                        color: #d3d3d3;
+                    }
+                }
+            }
+            .is-active {
+                background-color:#409EFF ;
+                i,span {
+                    color:#d3d3d3;
+                }
+            }
+        }
+    }
+  }
+  .avue-sidebar{
+    box-shadow: 2px 0 6px rgba(0, 21, 41, 0.15);
+    background-color: #fff;
+    .el-menu-item{
+        background-color: #fff!important;
+        i,span{
+            color:#666
+        }
+        &:hover{
+            background: #efefef!important;
+        }
+        &.is-active {
+            background-color: #efefef!important;
+        }
+    }
+    
+    .el-submenu{
+        background: #efefef!important;
+        i,span{
+            color:#666
+        }
+      &:hover{
+        //   background: #efefef;
+          i,span{
+             color:#666;
+          }
+      }
+      &.is-active {
+          background-color: #409EFF;
+      }
+      .el-submenu__title {
+        background: #fff!important;
+        &:hover{
+            background: #efefef!important;
+        }
+      }
+      .el-menu {
+          background-color: transparent!important;
+          li {
+            i,span{
+                color:#666;
+             }
+          }
+          li:hover{
+            background: #efefef!important;
+        }
+      }
+    }
+  }
+
+  .el-menu--vertical {
+      .el-menu {
+        background: #efefef!important;
+        .el-menu-item {
+            background: #fff!important;
+            i,span{
+                color:#666;
+            }
+            &:hover{
+                background: #efefef!important;
+            }
+        }
+      }
+      
+  }
+  .top-search {
+      .el-input__inner{
+        color: #333;
+      }
+      input::-webkit-input-placeholder,
+      textarea::-webkit-input-placeholder {
+          /* WebKit browsers */
+          color: #fff;
+      }
+      input:-moz-placeholder,
+      textarea:-moz-placeholder {
+          /* Mozilla Firefox 4 to 18 */
+          color: #fff;
+      }
+      input::-moz-placeholder,
+      textarea::-moz-placeholder {
+          /* Mozilla Firefox 19+ */
+          color: #fff;
+      }
+      input:-ms-input-placeholder,
+      textarea:-ms-input-placeholder {
+          /* Internet Explorer 10+ */
+          color: #fff;
+      }
+  }
+  .top-bar__item {
+      span {
+        i {
+            color: #fff;
+        }
+      }
+  }
+}
