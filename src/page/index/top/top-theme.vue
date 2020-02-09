@@ -48,7 +48,7 @@ export default {
         //   value: 'theme-gradual'
         // },
          {
-          name: 'iview主题',
+          name: '主流主题',
           value: 'theme-iview'
         }, {
           name: '白色主题',

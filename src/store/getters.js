@@ -9,7 +9,6 @@ const getters = {
   keyCollapse: (state, getters) => getters.screen > 1 ? getters.isCollapse : false,
   screen: state => state.common.screen,
   isLock: state => state.common.isLock,
-  isFullScren: state => state.common.isFullScren,
   lockPasswd: state => state.common.lockPasswd,
   tagList: state => state.tags.tagList,
   home: state => state.tags.home,
