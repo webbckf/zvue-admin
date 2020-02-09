@@ -125,7 +125,7 @@ export default {
     ...mapGetters([
       "userInfo",
       "isFullScren",
-      "tagWel",
+      "home",
       "tagList",
       "isCollapse",
       "tag",

@@ -51,7 +51,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters(['tagWel', 'tagList', 'tag', 'website']),
+    ...mapGetters(['home', 'tagList', 'tag', 'website']),
     tagLen () {
       return this.tagList.length || 0;
     }
@@ -103,9 +103,9 @@ export default {
       this.$store.commit('DEL_ALL_TAG')
       this.$router.push({
         path: this.$router.$zvueRouter.getPath({
-          src: this.tagWel.value
+          src: this.home.value
         }),
-        query: this.tagWel.query
+        query: this.home.query
       })
     },
   }

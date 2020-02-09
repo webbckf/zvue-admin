@@ -22,7 +22,7 @@ export default {
     isFirstPage: false,
     fistPage: {
         label: "首页",
-        value: "/wel/index",
+        value: "/home/index",
         params: {},
         query: {},
         group: [],

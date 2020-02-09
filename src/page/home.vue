@@ -8,7 +8,7 @@
               :xs="24"
               :sm="24">
         <basic-container>
-          <div class="wel-info">
+          <div class="home-info">
             <div class="img-border">
               <a href="#">
                 <div class="img"><img src="https://portrait.gitee.com/uploads/avatars/user/6/19835_zhangjl_1578915289.png!avatar30"></div>
@@ -63,7 +63,7 @@
 
 <script>
 export default {
-  name: "wel",
+  name: "home",
   data () {
     return {
       theme:'2',
@@ -297,7 +297,7 @@ export default {
 .data-icons .item {
   margin: 0;
 }
-.wel-info {
+.home-info {
   padding: 26px 0;
   .img-border {
     width: 64px;

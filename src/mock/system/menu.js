@@ -14,7 +14,7 @@ import Mock from 'mockjs'
 
 var top = [{
   label: "首页",
-  href: "/wel/index",
+  href: "/home/index",
   icon: 'el-icon-menu',
   parentId: 0
 },

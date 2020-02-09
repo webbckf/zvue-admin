@@ -1,13 +1,13 @@
 import Layout from '@/page/index/'
 export default [{
-    path: '/wel',
+    path: '/home',
     component: Layout,
-    redirect: '/wel/index',
+    redirect: '/home/index',
     children: [{
         path: 'index',
         name: '首页',
         component: () =>
-            import ( /* webpackChunkName: "views" */ '@/page/wel')
+            import ( /* webpackChunkName: "views" */ '@/page/home')
     }]
 }, {
     path: '/info',

@@ -120,7 +120,7 @@ export default {
   },
   mounted() {},
   computed: {
-    ...mapGetters(["tagWel"])
+    ...mapGetters(["home"])
   },
   props: [],
   methods: {
@@ -144,7 +144,7 @@ export default {
           // 根据用户名和密码进行登录
           let res = await this.$store.dispatch("LoginByUsername", this.loginForm)
           if(res) {
-            this.$router.push({ path: this.tagWel.value })
+            this.$router.push({ path: this.home.value })
           }
         }
       });

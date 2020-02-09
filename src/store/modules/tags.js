@@ -2,7 +2,7 @@ import { setStore, getStore } from '@/util/store'
 import { diff } from '@/util/util'
 import website from '@/config/website'
 const isFirstPage = website.isFirstPage;
-const tagWel = website.fistPage;
+const home = website.fistPage;
 const tagObj = {
         label: '', //标题名称
         value: '', //标题的路径
@@ -16,7 +16,7 @@ function setFistTag(list) {
         list[0].close = false;
     } else {
         list.forEach(ele => {
-            if (ele.value === tagWel.value && isFirstPage === false) {
+            if (ele.value === home.value && isFirstPage === false) {
                 ele.close = false
             } else {
                 ele.close = true
@@ -30,7 +30,7 @@ const navs = {
     state: {
         tagList: getStore({ name: 'tagList' }) || [],
         tag: getStore({ name: 'tag' }) || tagObj,
-        tagWel: tagWel
+        home: home
     },
     actions: {
 
@@ -52,7 +52,7 @@ const navs = {
             setStore({ name: 'tagList', content: state.tagList, type: 'session' })
         },
         DEL_ALL_TAG: (state) => {
-            state.tagList = [state.tagWel];
+            state.tagList = [state.home];
             setStore({ name: 'tagList', content: state.tagList, type: 'session' })
         },
         DEL_TAG_OTHER: (state) => {
