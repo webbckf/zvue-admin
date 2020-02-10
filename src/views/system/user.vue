@@ -415,7 +415,6 @@ export default {
         });
     },
     beforeOpen (done, type) {
-      debugger
       if (["edit", "view"].includes(type)) {
         getUser(this.form.id).then(res => {
           this.form = res.data.data;

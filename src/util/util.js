@@ -77,6 +77,30 @@ export const setTheme = (name) => {
     document.body.className = name;
 }
 
+/**
+ * 加密处理
+ */
+export const encryption = (params) => {
+    let {
+        data,
+        type,
+        param,
+        key
+    } = params;
+    let result = JSON.parse(JSON.stringify(data));
+    if (type === 'Base64') {
+        param.forEach(ele => {
+            result[ele] = btoa(result[ele]);
+        })
+    } else if (type === 'Aes') {
+        param.forEach(ele => {
+            result[ele] = window.CryptoJS.AES.encrypt(result[ele], key).toString();
+        })
+
+    }
+    return result;
+};
+
 
 /**
  * 浏览器判断是否全屏

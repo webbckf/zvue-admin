@@ -10,6 +10,7 @@ import website from '@/config/website'
 const common = {
     state: {
         isCollapse: false,
+        isFullScren: false,
         isShade: false,
         screen: -1,
         isLock: getStore({ name: 'isLock' }) || false,
@@ -40,6 +41,9 @@ const common = {
         },
         SET_COLLAPSE: (state) => {
             state.isCollapse = !state.isCollapse;
+        },
+        SET_FULLSCREN: (state) => {
+            state.isFullScren = !state.isFullScren;
         },
         SET_LOCK: (state) => {
             state.isLock = true;

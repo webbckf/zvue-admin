@@ -1,10 +1,10 @@
 <template>
-  <div class="avue-top">
+  <div class="zvue-top">
     <div class="top-bar__left">
-      <div class="avue-breadcrumb"
+      <div class="zvue-breadcrumb"
            v-if="showCollapse">
-        <i class="icon-daohang avue-breadcrumb_collapse"
-           :class="[{ 'avue-breadcrumb_collapse--right': isCollapse }]"
+        <i class="icon-daohang zvue-breadcrumb_collapse"
+           :class="[{ 'zvue-breadcrumb_collapse--right': isCollapse }]"
            @click="setCollapse"></i>
       </div>
     </div>
@@ -45,7 +45,7 @@
       </el-tooltip>
       <el-tooltip v-if="showTheme"
                   effect="dark"
-                  content="特色主题"
+                  content="主题"
                   placement="bottom">
         <div class="top-bar__item top-bar__item--show">
           <top-theme></top-theme>
@@ -81,6 +81,7 @@
 </template>
 <script>
 import { mapGetters } from "vuex";
+// import { resetRouter } from '@/router/router'
 import { fullscreenToggel, listenfullscreen } from "@/util/util";
 import topLock from "./top-lock";
 import topMenu from "./top-menu";
@@ -113,6 +114,7 @@ export default {
   computed: {
     ...mapGetters([
       "userInfo",
+      "isFullScren",
       "home",
       "tagList",
       "isCollapse",
@@ -138,6 +140,7 @@ export default {
         type: "warning"
       }).then(() => {
         this.$store.dispatch("logOut").then(() => {
+          // resetRouter();
           this.$router.push({ path: "/login" });
         });
       });

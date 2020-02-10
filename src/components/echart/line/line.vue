@@ -1,5 +1,5 @@
 <template>
-  <div class="avue-echart avue-echart-line"
+  <div class="zvue-echart zvue-echart-line"
        :style="styleSizeName">
     <div :ref="id"
          :style="styleChartName"></div>

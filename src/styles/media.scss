@@ -1,13 +1,13 @@
-.avue-left,
-.avue-header,
-.avue-top,
-.avue-logo,
+.zvue-left,
+.zvue-header,
+.zvue-top,
+.zvue-logo,
 .login-logo,
-.avue-main {
+.zvue-main {
     transition: all .3s;
 }
 
-.avue-contail {
+.zvue-contail {
     width: 100%;
     height: 100%;
     background-color: #f2f2f2;
@@ -15,14 +15,14 @@
     background-repeat: no-repeat;
 }
 
-.avue-top {
+.zvue-top {
     position: relative;
     width: 100%;
     height: 60px;
     margin: 0 auto;
 }
 
-.avue-logo {
+.zvue-logo {
     &_title{
         font-size: 18px;
         font-weight: 400;
@@ -30,7 +30,7 @@
 }
 
 
-.avue-left {
+.zvue-left {
     position: fixed;
     left: 0;
     top: 0;
@@ -39,28 +39,28 @@
     z-index: 1025;
 }
 
-.avue--collapse {
-    .avue-left,
-    .avue-logo {
+.zvue--collapse {
+    .zvue-left,
+    .zvue-logo {
         width: 60px;
     }
-    .avue-header {
+    .zvue-header {
         padding-left: 60px;
     }
-    .avue-main {
+    .zvue-main {
         width: calc(100% - 60px);
         left: 60px;
     }
 }
 
-.avue-header {
+.zvue-header {
     padding-left: 220px;
     width: 100%;
     background-color: #fff;
     box-sizing: border-box;
 }
 
-.avue-main {
+.zvue-main {
     position: absolute;
     left: 220px;
     margin-top: 0px;
@@ -72,7 +72,7 @@
     overflow: hidden;
 }
 
-.avue-view {
+.zvue-view {
     padding: 0 10px;
     padding-bottom: 22px;
     width: 100%;
@@ -81,7 +81,7 @@
     overflow: hidden auto;
 }
 
-.avue-footer {
+.zvue-footer {
     margin: 0 auto;
     padding: 0 22px;
     width: 1300px;
@@ -98,7 +98,7 @@
     }
 }
 
-.avue-shade {
+.zvue-shade {
     position: fixed;
     display: none;
     width: 100%;
@@ -138,46 +138,46 @@
         width: 100% !important;
     }
     //主框架
-    .avue-tags {
+    .zvue-tags {
         display: none;
     }
-    .avue-left,
-    .avue-logo {
+    .zvue-left,
+    .zvue-logo {
         left: -$width;
     }
-    .avue-main {
+    .zvue-main {
         left: 0;
         width: 100%;
     }
-    .avue-header {
+    .zvue-header {
         margin-bottom: 15px;
         padding-left: 15px;
     }
     .top-bar__item {
         display: none;
     }
-    .avue-top {
+    .zvue-top {
         .top-menu {
             .el-menu-item {
                 padding: 0 2px;
             }
         }
     }
-    .avue--collapse {
-        .avue-left,
-        .avue-logo {
+    .zvue--collapse {
+        .zvue-left,
+        .zvue-logo {
             width: $width;
             left: 0;
         }
-        .avue-main {
+        .zvue-main {
             left: $width;
             width: 100%;
         }
-        .avue-header {
+        .zvue-header {
             padding: 0;
             transform: translate3d(230px, 0, 0);
         }
-        .avue-shade {
+        .zvue-shade {
             display: block;
         }
     }

@@ -1,32 +1,32 @@
 <template>
-  <div class="avue-contail"
-       :class="{'avue--collapse':isCollapse}">
-    <div class="avue-header">
-      <!-- 顶部导航栏 -->
+  <div class="zvue-contail"
+       :class="{'zvue--collapse':isCollapse}">
+    <div class="zvue-header">
+      <!-- 顶部 -->
       <top />
     </div>
 
-    <div class="avue-layout">
-      <div class="avue-left">
+    <div class="zvue-layout">
+      <div class="zvue-left">
         <!-- 左侧导航栏 -->
         <sidebar />
       </div>
-      <div class="avue-main">
-        <!-- 顶部标签卡 -->
+      <div class="zvue-main">
+        <!-- 标签 -->
         <tags />
-        <!-- 主体视图层 -->
+        <!-- 主体视图 -->
         <el-scrollbar style="height:100%">
           <keep-alive>
-            <router-view class="avue-view"
+            <router-view class="zvue-view"
                          v-if="$route.meta.$keepAlive" />
           </keep-alive>
-          <router-view class="avue-view"
+          <router-view class="zvue-view"
                        v-if="!$route.meta.$keepAlive" />
         </el-scrollbar>
 
       </div>
     </div>
-    <div class="avue-shade"
+    <div class="zvue-shade"
          @click="showCollapse"></div>
   </div>
 </template>
@@ -37,7 +37,9 @@ import tags from './tags'
 import top from './top/'
 import sidebar from './sidebar/'
 import admin from '@/util/admin';
-
+import { validatenull } from '@/util/validate';
+import { calcDate } from '@/util/date.js';
+import { getStore } from '@/util/store.js';
 export default {
   components: {
     top,
@@ -52,9 +54,15 @@ export default {
   },
   data () {
     return {
+      //刷新token锁
+      refreshLock: false,
+      //刷新token的时间
+      refreshTime: '',
     }
   },
   created () {
+    //实时检测刷新token
+    // this.refreshToken();
   },
   mounted () {
     this.init();
@@ -103,7 +111,29 @@ export default {
           this.$store.commit('SET_SCREEN', admin.getScreen());
         }, 0);
       }
-    }
+    },
+    // 实时检测刷新token
+    refreshToken () {
+      this.refreshTime = setInterval(() => {
+        const token = getStore({
+          name: 'token',
+          debug: true,
+        }) || {};
+        const date = calcDate(token.datetime, new Date().getTime());
+        if (validatenull(date)) return;
+        if (!(date.seconds >= this.website.tokenTime) && !this.refreshLock) {
+          this.refreshLock = true;
+          this.$store
+            .dispatch('RefeshToken')
+            .then(() => {
+              clearInterval(this.refreshTime);
+            })
+            .catch(() => {
+              this.refreshLock = false;
+            });
+        }
+      }, 3000);
+    },
   }
 }
 </script>

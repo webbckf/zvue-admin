@@ -70,6 +70,7 @@
 
 <script>
 import { randomLenNum } from "@/util/util";
+import cryptoJS from '@/util/aesUtils'
 import { mapGetters } from "vuex";
 export default {
   name: "userlogin",
@@ -138,6 +139,8 @@ export default {
     handleLogin() {
       this.$refs.loginForm.validate(async valid => {
         if (valid) {
+          let { password } = this.loginForm
+          this.loginForm.password = cryptoJS.encrypt(password)
           // 根据用户名和密码进行登录
           let res = await this.$store.dispatch("LoginByUsername", this.loginForm)
           if(res) {

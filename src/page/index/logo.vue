@@ -1,8 +1,8 @@
 <template>
-  <div class="avue-logo">
+  <div class="zvue-logo">
     <transition name="fade">
       <span v-if="keyCollapse"
-            class="avue-logo_subtitle"
+            class="zvue-logo_subtitle"
             key="0">
         {{website.logo}}
       </span>
@@ -11,7 +11,7 @@
     <transition-group name="fade">
       <template v-if="!keyCollapse">
         
-        <span class="avue-logo_title"
+        <span class="zvue-logo_title"
               key="1">{{website.indexTitle}} </span>
       </template>
     </transition-group>
@@ -51,7 +51,7 @@ export default {
 .fade-leave-to {
   opacity: 0;
 }
-.avue-logo {
+.zvue-logo {
   position: fixed;
   display: flex;
   align-items: center;

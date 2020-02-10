@@ -1,9 +1,9 @@
 <template>
-  <div class="avue-tags"
+  <div class="zvue-tags"
        v-if="showTag">
     <!-- tag盒子 -->
-    <div class="avue-tags__box"
-         :class="{'avue-tags__box--close':!website.isFirstPage}">
+    <div class="zvue-tags__box"
+         :class="{'zvue-tags__box--close':!website.isFirstPage}">
       <el-tabs v-model="active"
                type="card"
                :closable="tagLen!==1"
@@ -15,7 +15,7 @@
                      :name="item.value">
         </el-tab-pane>
       </el-tabs>
-      <el-dropdown class="avue-tags__menu">
+      <el-dropdown class="zvue-tags__menu">
         <el-button type="primary"
                    size="mini">
           更多

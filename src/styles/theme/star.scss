@@ -1,14 +1,14 @@
 .theme-star {
-    .avue-contail {
+    .zvue-contail {
         background-image: url("/img/bg/bg1.jpeg");
         background-size: 100% 100%;
     }
-    .avue-header,
-    .avue-logo,
+    .zvue-header,
+    .zvue-logo,
     .tags-container {
         background-color: transparent;
     }
-    .avue-logo {
+    .zvue-logo {
         box-shadow:none
     }
     .el-card {
@@ -27,10 +27,10 @@
             }
         }
     }
-    .avue-tabs {
+    .zvue-tabs {
         padding: 0 20px !important;
     }
-    .avue-sidebar,
+    .zvue-sidebar,
     .logo,
     .el-menu-item,
     .el-submenu__title,
@@ -38,7 +38,7 @@
         background-color: transparent !important
     }
     .logo_title,
-    .avue-breadcrumb,
+    .zvue-breadcrumb,
     {
         color: #fff !important;
         i {
@@ -51,7 +51,7 @@
     .top {
         border-bottom: none;
     }
-    .avue-tags {
+    .zvue-tags {
         background-color: transparent;
         border: none;
     }

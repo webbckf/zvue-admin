@@ -40,8 +40,15 @@ export default {
           name: '炫彩主题',
           value: 'theme-star'
         },
-        {
-          name: '主流主题',
+        // , {
+        //   name: '黑色主题',
+        //   value: 'theme-black'
+        // }, {
+        //   name: '渐变主题',
+        //   value: 'theme-gradual'
+        // },
+         {
+          name: 'iview主题',
           value: 'theme-iview'
         }, {
           name: '白色主题',

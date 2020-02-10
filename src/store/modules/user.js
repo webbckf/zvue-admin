@@ -1,8 +1,7 @@
 import { setToken, removeToken } from '@/util/auth'
-import cryptoJS from '@/util/aesUtils'
 import { setStore, getStore } from '@/util/store'
 import { isURL, validatenull } from '@/util/validate'
-import { deepClone } from '@/util/util'
+import { encryption, deepClone } from '@/util/util'
 import webiste from '@/config/website'
 import { LoginByUsername, getUserInfo, getMenu, logout, getTopMenu, refeshToken } from '@/api/system/user'
 
@@ -40,11 +39,15 @@ const user = {
   actions: {
     //根据用户名登录
     LoginByUsername ({ commit }, userInfo) {
+      const user = encryption({
+        data: userInfo,
+        type: 'Aes',
+        key: 'zvue',
+        param: ['useranme', 'password']
+      });
       return new Promise(async (resolve) => {
-        let { password } = userInfo
-        let enc_password = cryptoJS.encrypt(password)
-        const res = await LoginByUsername(userInfo.username, enc_password, userInfo.code, userInfo.redomStr),
-          { data } = res.data
+        const res = await LoginByUsername(user.username, user.password, userInfo.code, userInfo.redomStr)
+        const { data } = res.data
         commit('SET_TOKEN', data)
         commit('DEL_ALL_TAG')
         commit('CLEAR_LOCK')
@@ -55,19 +58,19 @@ const user = {
     //根据手机号登录
     LoginByPhone ({ commit }, userInfo) {
       return new Promise(async (resolve) => {
-        const res = await LoginByUsername(userInfo.phone, userInfo.code),
-          { data } = res.data
+        const res = await LoginByUsername(userInfo.phone, userInfo.code)
+        const { data } = res.data
         commit('SET_TOKEN', data)
-        commit('DEL_ALL_TAG');
-        commit('CLEAR_LOCK');
+        commit('DEL_ALL_TAG')
+        commit('CLEAR_LOCK')
         setToken(data)
-        resolve(data)
+        resolve(data);
       })
     },
     GetUserInfo ({ commit }) {
       return new Promise(async (resolve, reject) => {
-        const res = await getUserInfo()
         try {
+          const res = await getUserInfo()
           const { data } = res.data
           commit('SET_USERIFNO', data.userInfo)
           commit('SET_ROLES', data.roles)
@@ -87,8 +90,8 @@ const user = {
           commit('SET_TOKEN', data)
           setToken(data)
           resolve(data)
-        } catch (err) {
-          reject(err)
+        } catch (error) {
+          reject(error)
         }
       })
     },
@@ -105,8 +108,8 @@ const user = {
           commit('CLEAR_LOCK')
           removeToken()
           resolve(res)
-        } catch (err) {
-          reject(err)
+        } catch (error) {
+          reject(error)
         }
       })
     },
@@ -117,26 +120,25 @@ const user = {
         commit('SET_MENUID', {})
         commit('SET_MENU', [])
         commit('SET_ROLES', [])
-        commit('DEL_ALL_TAG')
-        commit('CLEAR_LOCK')
+        commit('DEL_ALL_TAG');
+        commit('CLEAR_LOCK');
         removeToken()
         resolve()
       })
     },
     getTopMenu () {
-      return new Promise(resolve => {
-        getTopMenu().then((res) => {
-          const data = res.data.data || []
-          resolve(data)
-        })
+      return new Promise(async resolve => {
+        const res = await getTopMenu()
+        const { data } = res.data
+        resolve(data)
       })
     },
     //获取系统菜单
     getMenu ({ commit }, parentId) {
       return new Promise(async resolve => {
-        const res = await getMenu(parentId),
-          { data } = res.data,
-          menu = deepClone(data)
+        const res = await getMenu(parentId)
+        const { data } = res.data
+        let menu = deepClone(data)
         menu.forEach(ele => {
           addPath(ele, true)
         })
@@ -147,7 +149,7 @@ const user = {
   },
   mutations: {
     SET_TOKEN: (state, token) => {
-      state.token = token
+      state.token = token;
       setStore({ name: 'token', content: state.token, type: 'session' })
     },
     SET_MENUID: (state, menuId) => {

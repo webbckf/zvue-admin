@@ -1,28 +1,28 @@
 .theme-white {
-  .avue-header,
-  .avue-logo,
+  .zvue-header,
+  .zvue-logo,
   .tags-container {
       background-color: #409EFF;
   }
-  .avue-sidebar--tip{
+  .zvue-sidebar--tip{
     background-color:transparent;
     color:#333;
   }
   .el-dropdown{
     color:#fff;
   }
-  .avue-logo_title{
+  .zvue-logo_title{
     color:#fff;
   }
   .logo_title,
-  .avue-breadcrumb
+  .zvue-breadcrumb
   {
       color: #fff ;
       i {
           color: #fff;
       }
   }
-  .avue-top{
+  .zvue-top{
     .top-menu {
         .el-menu {
             background:none;
@@ -48,7 +48,7 @@
         }
     }
   }
-  .avue-sidebar{
+  .zvue-sidebar{
     box-shadow: 2px 0 6px rgba(0, 21, 41, 0.15);
     background-color: #fff;
     .el-menu-item{

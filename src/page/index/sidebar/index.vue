@@ -1,9 +1,9 @@
 <template>
-  <div class="avue-sidebar">
+  <div class="zvue-sidebar">
     <logo></logo>
     <el-scrollbar style="height:100%">
       <div v-if="validatenull(menu)"
-           class="avue-sidebar--tip">没有发现菜单</div>
+           class="zvue-sidebar--tip">没有发现菜单</div>
       <el-menu unique-opened
                :default-active="nowTagValue"
                mode="vertical"
